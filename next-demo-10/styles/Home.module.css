@@ -1,0 +1,28 @@
+.container{
+  
+}
+
+.box{
+display: grid;
+grid-gap:1rem;
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+}
+.title{
+  text-align: center;
+  color:brown;
+}
+
+.main{
+  border:2px solid red;
+  margin:1rem;
+  background-color: blanchedalmond;
+  padding: 2rem;
+
+}
+
+.footer{
+  text-align: center;
+  color:brown;
+  margin:2rem;
+}
