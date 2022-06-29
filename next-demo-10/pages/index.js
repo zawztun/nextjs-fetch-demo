@@ -1,16 +1,32 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Link from 'next/link'
 
 
 
-export async function getServerSideProps() {
-  // Fetch data from external API
+// export async function getServerSideProps() {
+//   // Fetch data from external API
+//   const res = await fetch(`https://jsonplaceholder.typicode.com/posts`)
+//   const posts = await res.json()
+
+//   // Pass data to the page via props
+//   return { props: { posts } }
+// }
+
+export async function getStaticProps() {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts`)
   const posts = await res.json()
 
-  // Pass data to the page via props
-  return { props: { posts } }
+  // By returning { props: { posts } }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props: {
+      posts,
+    },
+  }
 }
 
 
@@ -26,6 +42,7 @@ export default function Home({posts}) {
         <h1 className={styles.title}>
           Welcome to NextJS Demo by ZZT
         </h1>
+        <Link href = "/users"><a> See User List</a></Link> 
 
     <div className={styles.box}>
        {
